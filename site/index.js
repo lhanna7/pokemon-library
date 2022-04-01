@@ -1,10 +1,15 @@
 const app = document.querySelector(".pokemon")
 const url = "https://pokeapi.co/api/v2/pokemon?limit=50"
+const loading = document.querySelector(".loading")
 
-function addPokeImage(url) {
-    const img = document.createElement("img")
-    img.src = url
-    app.append(img)
+function addPokeImage(pokemon) {
+    const div = document.createElement("div")
+    div.innerHTML = `
+        <a href="pokemon.html?pokemon=${pokemon.name}">
+            <img src="${pokemon.sprites.front_shiny}" alt="${pokemon.name}" />
+        </a>   
+        `
+    app.append(div)
 }
 
 fetch(url)
@@ -16,7 +21,9 @@ fetch(url)
         return Promise.all(fetches)
     }).then(responses => {
         responses.forEach(response => {
-            addPokeImage(response.sprites.front_shiny)
+            addPokeImage(response)
+            loading.classList.add("hidden")
         })
     })
+
 

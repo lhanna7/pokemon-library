@@ -1,0 +1,28 @@
+body {
+    background-image: url(images/background.webp);
+    background-size: 100%;
+    /* background-repeat: no-repeat; */
+}
+
+main {
+    text-align: center;
+}
+
+.CatchEm {
+    width: 300px;
+}
+
+.loading {
+    width: 150px;
+}
+
+.hidden {
+    display: none;
+}
+
+.pokemon {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 23%;
+    margin-left: 23%;
+}
