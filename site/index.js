@@ -1,13 +1,14 @@
 const app = document.querySelector(".pokemon")
-const url = "https://pokeapi.co/api/v2/pokemon?limit=50"
+const url = "https://pokeapi.co/api/v2/pokemon?limit=50&offset=143"
 const loading = document.querySelector(".loading")
 
 function addPokeImage(pokemon) {
     const div = document.createElement("div")
+    div.classList.add("pokemon-listing")
     div.innerHTML = `
         <figure>
         <a href="pokemon.html?pokemon=${pokemon.name}">
-            <img src="${pokemon.sprites.front_shiny}" alt="${pokemon.name}" />
+            <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" />
             <figcaption class= "pokeName">${pokemon.name}</figcaption>
         </a>   
         </figure>
@@ -26,10 +27,6 @@ fetch(url)
         responses.forEach(response => {
             addPokeImage(response)
             loading.classList.add("hidden")
-        }).catch((error) => {
-            const p = document.createElement("p")
-            p.textContent = "Oops! Let's try that again..."
-            document.querySelector(app).append(p)
         })
     })
 
