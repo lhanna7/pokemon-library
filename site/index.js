@@ -5,9 +5,12 @@ const loading = document.querySelector(".loading")
 function addPokeImage(pokemon) {
     const div = document.createElement("div")
     div.innerHTML = `
+        <figure>
         <a href="pokemon.html?pokemon=${pokemon.name}">
             <img src="${pokemon.sprites.front_shiny}" alt="${pokemon.name}" />
+            <figcaption class= "pokeName">${pokemon.name}</figcaption>
         </a>   
+        </figure>
         `
     app.append(div)
 }
@@ -23,6 +26,10 @@ fetch(url)
         responses.forEach(response => {
             addPokeImage(response)
             loading.classList.add("hidden")
+        }).catch((error) => {
+            const p = document.createElement("p")
+            p.textContent = "Oops! Let's try that again..."
+            document.querySelector(app).append(p)
         })
     })
 
