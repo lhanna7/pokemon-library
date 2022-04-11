@@ -1,5 +1,5 @@
 const app = document.querySelector(".pokemon")
-const url = "https://pokeapi.co/api/v2/pokemon?limit=50&offset=143"
+const url = "https://pokeapi.co/api/v2/pokemon?limit=50"
 const loading = document.querySelector(".loading")
 
 function addPokeImage(pokemon) {

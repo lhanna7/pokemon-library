@@ -2,7 +2,6 @@ const ul = document.querySelector(".pokemon")
 const loading = document.querySelector(".loading")
 
 function addPokeImage(pokemon) {
-    console.log(pokemon)
     const div = document.createElement("div")
     div.classList.add("pokemon-details")
     div.innerHTML = `
@@ -20,7 +19,6 @@ function addPokeImage(pokemon) {
 }
 
 function addPokeAbility(ability) {
-    console.log(ability)
     const li = document.createElement("li")
     const flavor_text = (ability.flavor_text_entries)
         .find(flavor_text_entry => flavor_text_entry.language.name === "en")
